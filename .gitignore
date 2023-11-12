@@ -26,9 +26,6 @@ share/python-wheels/
 *.egg
 MANIFEST
 
-# Ignore models
-*.pkl
-
 # Ignore catboost
 models/catboost_info/
 
