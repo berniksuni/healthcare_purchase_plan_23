@@ -89,4 +89,10 @@ for df_name, df in [('df_transito', df_transito), ('df_specified_ids', df_specif
 pred = np.concatenate(predictions_2023F).flatten()
 gt = np.concatenate(gt_2023F).flatten()
 
-savetxt('predictions.csv', pred, delimiter=',')
+#savetxt('predictions.csv', pred, delimiter=',')
+
+df1 = pd.read_csv('predictions.csv')
+df2 = pd.read_csv('data/consumo_23.csv')
+
+df2['PREDICTIONS2023'] = df1['PREDICTIONS']
+df2.to_csv('2023dsWithPred.csv', index=False)
