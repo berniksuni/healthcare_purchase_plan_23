@@ -5,7 +5,7 @@ This project focuses on creating a procurement plan for the year 2023 based on a
 
 ## Folder Structure
 ```
-    HP
+    healthcare_challenge
     ├── datasets
     ├── models
     ├── data_exploring
