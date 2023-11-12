@@ -7,19 +7,22 @@ The `models` folder contains Jupyter notebooks and Python files that were used t
 ### 1. ARIMA.ipynb
 - Jupyter notebook focused on ARIMA modeling for time series analysis. It explores and implements the ARIMA model for predictive analysis.
 
-### 2. meta_prophet.ipynb
+### 2. catboosting_model.ipynb
+- Notebook that uses the catboostRegressor model. A grid search is used to look for the best params for the model.
+
+### 3. meta_prophet.ipynb
 - Notebook utilizing the Prophet model for time series forecasting and analysis. It demonstrates the implementation and analysis of the Prophet model.
 
-### 3. model_trimestral.ipynb
+### 4. model_trimestral.ipynb
 - Notebook detailing a model that groups the data by trimester. It provides an approach that aggregates data into trimesters for analysis.
 
-### 4. model_trimestral.py
+### 5. model_trimestral.py
 - Python file containing an XGBoost ensemble model. This file holds the implementation of an XGBoost model that works with trimester-aggregated data.
 
-### 5. xgboost_categories.ipynb
+### 6. xgboost_categories.ipynb
 - Jupyter notebook showcasing an XGBoost model utilizing the "CATEGORIES" column. It demonstrates the use of XGBoost on data categorized under specific columns.
 
-### 6. xgboost_grid.ipynb
+### 7. xgboost_grid.ipynb
 - Jupyter notebook detailing the first XGBoost model and a grid search to optimize its parameters. It explores the initial model development and parameter tuning using a grid search approach.
 
 ## Usage
