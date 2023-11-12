@@ -11,10 +11,13 @@ def preprocess_cosumo(data):
     separated_origin = data['ORIGEN'].str.extract(r'(\d+)\D+(\d+)\D+(\d+)')
     data['REGION'], data['HOSPITAL'], data['DEPARTMENT'] = separated_origin[0], separated_origin[1], separated_origin[2]
     # Drop unnecessary columns
-    data.drop(['PRODUCTO', 'NUMERO','ORIGEN','CANTIDADCOMPRA','IMPORTELINEA'], axis = 1, inplace = True)
+    data.drop(['PRODUCTO', 'NUMERO','ORIGEN','CANTIDADCOMPRA','IMPORTELINEA', 'REFERENCIA', 'REGION', 'HOSPITAL','DEPARTMENT', 'CATEGORY'], axis = 1, inplace = True)
     # One hot encode the columns
-    data_ohe = pd.get_dummies(data, columns=['CODIGO', 'REFERENCIA','TIPOCOMPRA', 'TGL', 'REGION', 'HOSPITAL', 'DEPARTMENT', 'CATEGORY'])
-    data_ohe.iloc[:, 3:] = data_ohe.iloc[:, 3:].astype('int')
+    data_ohe = pd.get_dummies(data, columns=['CODIGO','TIPOCOMPRA'])
+    data_ohe.iloc[:, 5:] = data_ohe.iloc[:, 5:].astype('int')
+    #weight_mapping = {'ALMACENABLE': 1, 'TRANSITO': 0} 
+    #data_ohe['TGL_weighted'] = data_ohe['TGL'].map(weight_mapping)
+    data_ohe = data_ohe.drop(columns=['TGL'])
     print("asjfkjdsfljds")
     return data_ohe
 
