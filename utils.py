@@ -15,10 +15,8 @@ def preprocess_cosumo(data):
     # One hot encode the columns
     data_ohe = pd.get_dummies(data, columns=['CODIGO','TIPOCOMPRA'])
     data_ohe.iloc[:, 5:] = data_ohe.iloc[:, 5:].astype('int')
-    #weight_mapping = {'ALMACENABLE': 1, 'TRANSITO': 0} 
-    #data_ohe['TGL_weighted'] = data_ohe['TGL'].map(weight_mapping)
+    # Drop the TGL column
     data_ohe = data_ohe.drop(columns=['TGL'])
-    print("asjfkjdsfljds")
     return data_ohe
 
 def residuals_hist(y_true, y_pred):
@@ -34,7 +32,7 @@ def residuals_scatter(y_true, y_pred):
     residuals = np.abs(y_true - y_pred)
     # Alternatively, create a scatter plot
     plt.scatter(y_pred, residuals, alpha=0.5)
-    plt.axhline(y=0, color='red', linestyle='--')  # Add a horizontal line at y=0 for reference
+    plt.axhline(y=0, color='red', linestyle='--')
     plt.title('Residuals Scatter Plot')
     plt.xlabel('True Values')
     plt.ylabel('Residuals')
