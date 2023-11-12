@@ -87,4 +87,5 @@ for df_name, df in [('df_transito', df_transito), ('df_specified_ids', df_specif
 pred = np.concatenate(predictions_2023F).flatten()
 gt = np.concatenate(gt_2023F).flatten()
 
+# Save the data
 savetxt('predictions.csv', pred, delimiter=',')
