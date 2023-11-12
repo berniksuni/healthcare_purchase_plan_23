@@ -3,8 +3,9 @@ import pandas as pd
 import pickle
 import sys
 from numpy import savetxt
-sys.path.insert(1, r'C:\Users\adars\OneDrive\Escritorio\Uni\datathon\healthcare_challenge')
-from utils import *
+sys.path.insert(1, '../utils')
+from preprocessing import preprocess_cosumo
+
 
 # Read dataset
 df = pd.read_csv('data/consumo_material_clean_with_category.csv', parse_dates=['FECHAPEDIDO'])
