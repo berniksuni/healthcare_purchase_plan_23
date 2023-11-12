@@ -52,9 +52,6 @@ for df_name, df in [('df_transito', df_transito), ('df_specified_ids', df_specif
     grouped_df = df.groupby(['trimester', df['FECHAPEDIDO'].dt.year])
     trimester_dfs = [grouped_df.get_group((trimester, year)).reset_index(drop=True) for (trimester, year), _ in grouped_df]
     result_dfs = [trimester_dfs[i] for i in range(0, len(trimester_dfs))]
-    # result_dfs = []
-    # for chunk in dfs_chunked:
-    #     result_dfs.append(pd.concat(chunk, axis=0, ignore_index=True))
     
     # Apply the trained models
     for i, result_df in enumerate(result_dfs):
